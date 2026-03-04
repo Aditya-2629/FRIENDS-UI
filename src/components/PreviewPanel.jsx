@@ -1,11 +1,27 @@
-const PreviewPanel = ({ code, refreshKey }) => {
-  return (
-    <iframe
-      key={refreshKey}
-      srcDoc={code}
-      className="w-full h-full bg-white"
-    />
-  );
-};
+import { useEffect, useState } from "react";
 
-export default PreviewPanel;
+const PreviewPanel = ({ code }) => {
+  const [src, setSrc] = useState("");
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+              setSrc(code);
+                  }, 300);
+
+                      return () => clearTimeout(timeout);
+                        }, [code]);
+
+                          return (
+                              <iframe
+                                    title="preview"
+                                          srcDoc={src}
+                                                sandbox="allow-scripts"
+                                                      frameBorder="0"
+                                                            width="100%"
+                                                                  height="100%"
+                                                                        className="bg-white rounded-xl"
+                                                                            />
+                                                                              );
+                                                                              };
+
+                                                                              export default PreviewPanel;
