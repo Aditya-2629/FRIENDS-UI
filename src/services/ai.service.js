@@ -14,7 +14,7 @@ apiKey: import.meta.env.VITE_GEMINI_KEY
     export async function generateUIStream(prompt, framework, onChunk) {
 
     const stream = await ai.models.generateContentStream({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.0-flash",
     contents: `
     You are a professional frontend developer.
 
