@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import GeneratorForm from "../components/GeneratorForm";
 import OutputPanel from "../components/OutputPanel";
-import AIThinking from "../components/AIThinking";
 
 import { generateUIStream } from "../services/ai.service";
 import { extractCode } from "../utils/extractCode";
@@ -77,15 +76,12 @@ if (!prompt.trim()) {
                                                                                             onGenerate={handleGenerate}
                                                                                                 />
 
-                                                                                                   {loading && (
-                                                                                                     <div className="h-[500px] flex items-center justify-center">
-                                                                                                         <AIThinking />
-                                                                                                           </div>
-                                                                                                           )}
-
-                                                                                                           {code && !loading && (
-                                                                                                             <OutputPanel code={code} />
-                                                                                                             )}
+                                                                                                {code && (
+                                                                                                        <OutputPanel
+                                                                                                                code={code}
+                                                                                                                      />
+                                                                                                                          )}
+                                                                                                
 
                                                                                                                               </div>
 
