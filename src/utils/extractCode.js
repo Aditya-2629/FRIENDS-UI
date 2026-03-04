@@ -9,4 +9,3 @@ export function extractCode(response) {
 
                 return response.trim();
                 }
-}
